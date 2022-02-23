@@ -8,16 +8,13 @@ int main()
 	char nompac[30][3], nomtrat[30][3], desc[100][3];
 	do {
 
-// hay una funcion que se llama getline que sirvepara los espacios y existen diferetnes sintaxis
-//getline(cin,nombre);
 		cout << "Citas dentales Caro" << endl;
 		cout << "1.-Agendar cita\n2.-Modificar cita\n3.-Elminar cita\n4.-Lista de citas \n5.-Limpiar pantalla\n6.-Salir\n";
 		cout << "Ingrese la opción que guste: ";
 		cin >> opcion;
 		switch (opcion) {
 		case 1:
-///CAMBIAR A DO WHILE O WHILE 
-			for (int i = 1; i < 4; i++) {
+			while (int i = 1; i < 4; i++) {
 				cout << "-PACIENTE " << i << "-\n";
 				cout << "Nombre del Paciente: ";
 				cin >> nompac[i];
