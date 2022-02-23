@@ -5,7 +5,7 @@ int main()
 {
 	int opcion,edad[3];
 	int salir=1; 
-	char nompac[30][3], nomtrat[30][3], desc[100][3];
+	char nompac[30], nomtrat[30], desc[100];
 	do {
 
 		cout << "Citas dentales Caro" << endl;
