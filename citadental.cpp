@@ -4,8 +4,8 @@ using namespace std;
 struct info
 {
     int id;
-    char nombrep[100],nomt[100], desc[100];
-    float cant,hora, preut, precun;
+    char nombrep[100],nombret[100], descr[100];
+    float cantidad,hora, precio;
 };
 
 int main()
@@ -34,13 +34,13 @@ int main()
                     cout << "Hora de la cita:" << endl;
                     cin >> citas[i].hora;
                     cout << "Nombre del tratamiento:" << endl;
-                    cin >> citas[i].nomt;
+                    cin >> citas[i].nombret;
                     cout << "Descripcion del tratamiento:" << endl;
-                    cin >> citas[i].desc;
+                    cin >> citas[i].descr;
                     cout << "Cantidad del tratamiento:" << endl;
-                    cin >> citas[i].cant;
+                    cin >> citas[i].cantidad;
                     cout << "Precio:" << endl;
-                    cin >> citas[i].precun;
+                    cin >> citas[i].precio;
                     cout << "¿Desea agendar otra cita? 1. si 2. no \n";
                     cin >> op;
                     if (op == 1) {
@@ -61,7 +61,7 @@ int main()
             {
                 cout << "El id es:" << i + 1 << "\n";
                     cout << "Inserte nombre del paciente:" << "\n";
-                    cin >> citas[i].nomp;
+                    cin >> citas[i].nombrep;
             }
             break;
 
@@ -73,17 +73,17 @@ int main()
             {
                 cout << "el id es:" << i + 1 << "\n";
                 cout << "Nombre del paciente:";
-                cout << citas[i].nomp << "\n";
+                cout << citas[i].nombrep << "\n";
                 cout << "Hora del tratamiento:";
                 cout << citas[i].hora << "\n";
                 cout << "Nombre de su tratamiento:";
-                cout << citas[i].nomt << "\n";
+                cout << citas[i].nombret << "\n";
                 cout << "Descripcion:";
-                cout << citas[i].desc << "\n";
+                cout << citas[i].descr << "\n";
                 cout << "Cantidad del tratamiento:";
-                cout << citas[i].cant << "\n";
+                cout << citas[i].cantidad << "\n";
                 cout << "Precio:" << endl;
-                cout << citas[i].precun << "\n";
+                cout << citas[i].precio << "\n";
             }
             menu = 1;
             break;
