@@ -98,7 +98,7 @@ int main()
             break;
 
         default:
-            cout << "su opcion es incorrecta";
+            cout << "la opcion ingresada es incorrecta";
             menu = 1;
             break;
         }
