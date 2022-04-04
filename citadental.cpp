@@ -4,7 +4,7 @@ using namespace std;
 struct info
 {
     int id;
-    char nomp[50],nomt[50], desc[50];
+    char nombrep[100],nomt[100], desc[100];
     float cant,hora, preut, precun;
 };
 
@@ -30,7 +30,7 @@ int main()
             {  
                     cout << "Numero de su cita:" << i + 1 << "\n";
                     cout << "Nombre del paciente que sera consultado:";
-                    cin >> citas[i].nomp;
+                    cin >> citas[i].nombrep;
                     cout << "Hora de la cita:" << endl;
                     cin >> citas[i].hora;
                     cout << "Nombre del tratamiento:" << endl;
