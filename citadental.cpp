@@ -17,7 +17,7 @@ int main()
     int j,op;
     do
     {
-        cout << "\t" << "BIENVENIDO A CITA DENTAL CARO, ESCOJA LA OPCION QUE QUIERA" << "\n";
+        cout << "\t" << "BIENVENIDO A TU CITA DENTAL CARO, ESCOJA LA OPCION QUE QUIERA" << "\n";
         cout << "1. Agendar cita" << endl << "2. Modificar cita" << endl << "3. Eliminar cita" << endl << "4. Lista de citas vigentes" << endl << "5. Limpiar pantalla" << endl << "6. Salir" << endl;
         cin >> opcion;
 
