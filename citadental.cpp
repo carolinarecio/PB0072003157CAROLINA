@@ -1,108 +1,212 @@
 #include <iostream>
+#include <conio.h>
+#include <string.h>
+#include <string>
+#include <fstream>
+#include <stdlib.h>
+#include <vector>
+
 using namespace std;
 
-struct info
-{
-    int id;
-    char nombrep[100],nombret[100], descr[100];
-    float cantidad,hora, precio;
-};
+void agendar();
+void lista();
+void archivos();
+void eliminar();
+void modificar();
+
+int i,id;
+string *nomp, *nomt, *desc;
+int *cant, *hora, *preut, *precun, *total;
 
 int main()
 {
-    info citas[10];
-    int opcion;
-    int menu;
-    int i;
-    int j,op;
-    do
-    {
-        cout << "\t" << "BIENVENIDO A TU CITA DENTAL CARO, ESCOJA LA OPCION QUE QUIERA" << "\n";
-        cout << "1. Agendar cita" << endl << "2. Modificar cita" << endl << "3. Eliminar cita" << endl << "4. Lista de citas vigentes" << endl << "5. Limpiar pantalla" << endl << "6. Salir" << endl;
-        cin >> opcion;
+	int opc;
+	cout << "\t" << "BIENVENIDO A TU CITA DENTAL, ESCOGE LA OPCION QUE QUIERA" << "\n";
+	cout << "1. Agendar cita" << endl << "2. Modificar cita" << endl << "3. Eliminar cita" << endl << "4. Lista de citas vigentes" << endl << "5. Limpiar pantalla" << endl << "6. Salir" << endl;
+	cin >> opc;
 
-        switch (opcion)
-        {
-        case 1:
-             do{
-                 j = 1;
-            for (i = 0; i < j; i++)
-            {  
-                    cout << "Numero de su cita:" << i + 1 << "\n";
-                    cout << "Nombre del paciente que sera consultado:";
-                    cin >> citas[i].nombrep;
-                    cout << "Hora de la cita:" << endl;
-                    cin >> citas[i].hora;
-                    cout << "Nombre del tratamiento:" << endl;
-                    cin >> citas[i].nombret;
-                    cout << "Descripcion del tratamiento:" << endl;
-                    cin >> citas[i].descr;
-                    cout << "Cantidad del tratamiento:" << endl;
-                    cin >> citas[i].cantidad;
-                    cout << "Precio:" << endl;
-                    cin >> citas[i].precio;
-                    cout << "¿Desea agendar otra cita? 1. si 2. no \n";
-                    cin >> op;
-                    if (op == 1) {
-                        j = j + 1;
-                    } 
-                    else {
-                        menu = 1;
-                    }
-                }; 
-                } while (op == 1);
-            break;
+	switch (opc)
+	{
+	case 1:
+		agendar();
+		return main();
+		break;
 
-        case 2:
-            cout << "¿Cual es id de la cita que quiera cambiar?" << endl;
-            cin >> j;
-            j = j - 1;
-            for (i = j; i <= j; i++)
-            {
-                cout << "El id es:" << i + 1 << "\n";
-                    cout << "Inserte nombre del paciente:" << "\n";
-                    cin >> citas[i].nombrep;
-            }
-            break;
+	case 2:
+		lista();
+		return main();
+		break;
 
-        case 3:
-            break;
+	case 3:
+		system("cls");
+		return main();
+		break;
 
-        case 4:
-            for (i = 0; i <= j; i++)
-            {
-                cout << "el id es:" << i + 1 << "\n";
-                cout << "Nombre del paciente:";
-                cout << citas[i].nombrep << "\n";
-                cout << "Hora del tratamiento:";
-                cout << citas[i].hora << "\n";
-                cout << "Nombre de su tratamiento:";
-                cout << citas[i].nombret << "\n";
-                cout << "Descripcion:";
-                cout << citas[i].descr << "\n";
-                cout << "Cantidad del tratamiento:";
-                cout << citas[i].cantidad << "\n";
-                cout << "Precio:" << endl;
-                cout << citas[i].precio << "\n";
-            }
-            menu = 1;
-            break;
+	case 4:
+		modificar();
+		return main();
+		break;
 
-        case 5:
+	case 5:
+		eliminar();
+		return main();
+		break;
 
-            break;
-
-        case 6:
-            cout << "Saliendo del programa";
-            menu = 2;
-            break;
-
-        default:
-            cout << "la opcion ingresada es incorrecta";
-            menu = 1;
-            break;
-        }
-    } while (menu == 1);
-
-    return 0;
+	case 6:
+		archivos();
+		break;
+	}
 }
+
+void agendar()
+{ 
+	cout << "Inserte el numero de citas que desea agendar:" << endl;
+	cin >> id;
+	cant = new int[id];
+	hora = new int[id];
+	preut = new int[id];
+	precun = new int[id];
+	nomp = new string [id];
+	nomt = new string[id];
+	desc = new string[id];
+	for (int i = 0;i < id;i++)
+	{
+		cout << "Nombre del paciente consultado:" << endl;
+		getline(cin, nomp[i]); 
+		cout << "Hora del tratamiento:" << endl;
+		cin >> hora[i];
+		cout << "Nombre del tratamiento:" << endl;
+		getline(cin,nomt[i]);
+		cout << "Descripcion:" << endl;
+		getline(cin,desc[i]);
+		cout << "Precio unitario del tratamiento:" << endl;
+		cin >> preut[i];
+		cout << "Cantidad del tratamiento:" << endl;
+		cin >> cant[i];
+		cout << "Precio unitario:" << endl;
+		cin >> precun[i];
+	}
+}
+
+void lista()
+{
+	for (int i = 0;i < id;i++)
+	{ 
+		if (id == 0)
+		{
+			cout << "REGISTRO ELIMINADO" << i + 1<<endl;
+		}
+		else
+		{
+			cout << "Cita:" << i + 1 << endl;
+			cout << nomp[i];
+			cout << hora[i];
+			cout << nomt[i];
+			cout << desc[i];
+			cout << preut[i];
+			cout << cant[i];
+			cout << precun[i];
+		}
+	}
+}
+
+void eliminar()
+{
+	int j;
+	cout << "inserte el registro a eliminar";
+	cin >> j;
+	j = j - 1;
+	for (int i = j;i == j;i++)
+	{
+		cout << "Eliminando registro" << j + 1 << endl;
+		
+		nomp[i] = " ";
+		hora[i]=0;
+		nomt[i]=" ";
+		desc[i]=" ";
+		preut[i]=0;
+		cant[i]=0;
+		precun[i]=0;
+
+	}
+}
+
+void modificar()
+{
+	int j, opcion;
+	 cout << "inserte el numero registro a modificar";
+	 cin >> j;
+	 j = j - 1;
+
+	 cout << "Nombre del paciente que sera consultado:" << endl;
+	 getline(cin, nomp[i]);
+	 cout << "Hora del tratamiento:" << endl;
+	 cin >> hora[i];
+	 cout << "Nombre del tratamiento:" << endl;
+	 getline(cin, nomt[i]);
+	 cout << "Descripcion del tratamiento:" << endl;
+	 getline(cin, desc[i]);
+	 cout << "Precio unitario del tratamiento:" << endl;
+	 cin >> preut[i];
+	 cout << "Cantidad del tratamiento:" << endl;
+	 cin >> cant[i];
+	 cout << "Precio unitario:" << endl;
+	 cin >> precun[i];
+}
+
+void archivos()
+{
+	ofstream archivo;
+	string nombrearchivo;
+	int texto2, texto5, texto6;
+	string texto, texto3, texto4;
+
+	nombrearchivo = "citas";
+
+	archivo.open(nombrearchivo.c_str(), ios::out);
+
+	if (archivo.fail())
+	{
+		cout << "ERROR NO SE PUDO CREAR EL ARCHIVO";
+		exit(1);
+	}
+
+	archivo << "NOMBRE PACIENTE QUE SERA CONSULTADO" << "\t";
+	archivo << "HORA DEL TRATAMIENTO" << "\t";
+	archivo << "NOMBRE DEL TRATAMIENTO" << "\t";
+	archivo << "DESCRIPCION DEL TRATAMIENTO" << "\t";
+	archivo << "PRECIO UNITARIO" << "\t";
+	archivo << "CANTIDAD DEL TRATAMIENTO" << "\t";
+	archivo << "PRECIO UNITARIO" << "\t";
+	archivo << "TOTAL" << "\t";
+
+	for (int i = 0; i < id; i++)
+	{
+		if (id == 0)
+		{
+
+		}
+		else
+		{
+			texto = nomp[i];
+			archivo << texto << "\t" << "\t";
+			texto2 = hora[i];
+			archivo << texto2 << "\t" << "\t";
+			texto3 = nomt[i];
+			archivo << texto3 << "\t " << "\t";
+			texto4 = desc[i];
+			archivo << texto4 << "\t" << "\t";
+			texto5 = precun[i];
+			archivo << texto5 << "\t " << "\t";
+			texto6 = cant[i];
+			archivo << texto6 << "\t " << "\t";
+			total[i] = (precun[i] *cant[i]);
+			texto = total[i];
+		}
+	}
+
+
+	archivo.close();
+}
+
+
